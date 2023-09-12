@@ -1,30 +1,43 @@
 #!/usr/bin/python3
+"""Defines the FileStorage class."""
 import json
+from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
 
-""" A class that serializes instances to a JSON file and deserializes JSON file to instances"""
+
 class FileStorage:
-    """This class stores models in json format"""
-    __file_path = 'file.json'
+    """Represent an abstracted storage engine.
+
+    Attributes:
+        __file_path (str): The name of the file to save objects to.
+        __objects (dict): A dictionary of instantiated objects.
+    """
+    __file_path = "file.json"
     __objects = {}
 
     def all(self):
-        """Returns a dictionary of models in storage"""
-        return self.__objects
-    
+        """Return the dictionary __objects."""
+        return FileStorage.__objects
+
     def new(self, obj):
-        """Adds a new object to storage"""
-        self.all().update({obj.to_dict()['__class__'] + '.' + obj.id: obj})
+        """Set in __objects obj with key <obj_class_name>.id"""
+        ocname = obj.__class__.__name__
+        FileStorage.__objects["{}.{}".format(ocname, obj.id)] = obj
 
     def save(self):
-        """Saves storage dictionary to a file"""
-        with open(FileStorage.__file_path, 'w') as writefile:
-            temp = {}
-            temp.update(FileStorage.__objects)
-            for key, val in temp.items():
-                temp[key] = val.to_dict()
-            json.dump(temp, writefile)    
+        """Serialize __objects to the JSON file __file_path."""
+        odict = FileStorage.__objects
+        objdict = {obj: odict[obj].to_dict() for obj in odict.keys()}
+        with open(FileStorage.__file_path, "w") as f:
+            json.dump(objdict, f)
 
     def reload(self):
+
         """Loads storage dictionary from file"""
         from models.base_model import BaseModel
         from models.user import User
@@ -47,4 +60,4 @@ class FileStorage:
                 for key, val in temp.items():
                     self.all()[key] = classes[val['__class__']](**val)
         except FileNotFoundError:
-            pass
+            return
