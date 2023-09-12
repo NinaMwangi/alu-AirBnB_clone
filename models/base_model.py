@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 
-#Importing the modules we will use
+"""Importing the modules we will use"""
 
-import cmd
 from datetime import datetime
 import uuid
 
