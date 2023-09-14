@@ -32,9 +32,8 @@ def parse(arg):
         retl.append(curly_braces.group())
         return retl
 
+
 class HBNBCommand(cmd.Cmd):
-
-
     """Hbnb Command Processor"""
 
     prompt = '(hbnb)'
@@ -82,7 +81,7 @@ class HBNBCommand(cmd.Cmd):
     def do_help(self, arg: str):
         """Describes what the methods do"""
         return super().do_help(arg)
-    
+
     def emptyline(self):
         """Empty line + Enter doesnt execute"""
         pass
