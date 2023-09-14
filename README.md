@@ -8,7 +8,7 @@ The project AirBnB clone will be composed of:
 4. An API that links the database to the front end.
 
 # The Console....
-https://user-images.githubusercontent.com/106445167/215117023-000bc02d-e853-4954-8b3d-daaee19291e1.png![image](https://github.com/NinaMwangi/alu-AirBnB_clone/assets/122353603/fdb8fcb8-9448-4e58-a271-45b136afcaa7)
+![215117023-000bc02d-e853-4954-8b3d-daaee19291e1](https://github.com/NinaMwangi/alu-AirBnB_clone/assets/122353603/73f2f4e1-2f4f-461b-a89e-8b6243d3837f)
 
 For this Command interpreter we want to be able to manage the objects of our project. We can create an object, retrieve an object from a file, we are also able to use help to gain clarity on what a method does.We are also able to update and object and destroy it.
 You can run this console both interactively and non-interactively. To use the console interactively use:
