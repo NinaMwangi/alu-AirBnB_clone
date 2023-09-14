@@ -1,4 +1,5 @@
 # alu-AirBnB_clone
+![hbnb_logo](https://github.com/NinaMwangi/alu-AirBnB_clone/assets/122353603/d3fca916-d8bd-4915-bcb2-00b2e09eb43b)
 
 This is a full web application based on Airbnb. In this project we will clone the Airbnb website.
 The project AirBnB clone will be composed of:
