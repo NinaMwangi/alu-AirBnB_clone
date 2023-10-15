@@ -31,7 +31,8 @@ def parse(arg):
         retl = [i.strip(",") for i in lexer]
         retl.append(curly_braces.group())
         return retl
-    
+
+
 class HBNBCommand(cmd.Cmd):
     """Hbnb Command Processor"""
 
@@ -45,6 +46,7 @@ class HBNBCommand(cmd.Cmd):
         "Review": Review,
         "Place": Place
     }
+
     def default(self, arg):
         """Default behavior fro cmd module when no command is found"""
 
@@ -71,18 +73,19 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, arg):
         """EOF command to exit the program \n"""
         return True
-    
+
     def do_quit(self, arg):
         """Quit command to exit the program \n"""
         return True
-    
+
     def do_help(self, arg: str):
         """Describes what the methods do"""
         return super().do_help(arg)
-    
+
     def emptyline(self):
         """Empty line + Enter doesnt execute"""
         pass
+
     def do_create(self, arg):
         """
         Usage: create <class>
@@ -214,8 +217,6 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     obj.__dict__[k] = v
         storage.save()
-
-
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
